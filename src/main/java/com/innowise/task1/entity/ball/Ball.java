@@ -4,24 +4,24 @@ import com.innowise.task1.entity.parameter.Color;
 import com.innowise.task1.entity.parameter.Type;
 
 public abstract class Ball {
-    int diameter;
-    int weight;
+    Integer diameter;
+    Integer weight;
     Type type;
     Color color;
 
-    public int getDiameter() {
+    public Integer getDiameter() {
         return diameter;
     }
 
-    public void setDiameter(int diameter) {
+    public void setDiameter(Integer diameter) {
         this.diameter = diameter;
     }
 
-    public int getWeight() {
+    public Integer getWeight() {
         return weight;
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(Integer weight) {
         this.weight = weight;
     }
 

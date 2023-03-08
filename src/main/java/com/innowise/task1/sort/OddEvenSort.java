@@ -5,8 +5,14 @@ import com.innowise.task1.entity.comparator.BallComparator;
 
 import java.util.List;
 
-public class OddEvenSort {
-    public void sort(List<Ball> balls, BallComparator comparator) {
+public class OddEvenSort implements BallsSortAlgorithm {
+    private BallComparator comparator;
+
+    public void setComparator(BallComparator comparator) {
+        this.comparator = comparator;
+    }
+
+    public void sort(List<Ball> balls) {
         boolean isSorted = false;
 
         while (!isSorted) {
