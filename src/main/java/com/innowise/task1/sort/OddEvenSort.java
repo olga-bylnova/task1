@@ -1,14 +1,14 @@
 package com.innowise.task1.sort;
 
 import com.innowise.task1.entity.ball.Ball;
-import com.innowise.task1.entity.comparator.BallComparator;
 
+import java.util.Comparator;
 import java.util.List;
 
 public class OddEvenSort implements BallsSortAlgorithm {
-    private BallComparator comparator;
+    private Comparator<Ball> comparator;
 
-    public void setComparator(BallComparator comparator) {
+    public void setComparator(Comparator<Ball> comparator) {
         this.comparator = comparator;
     }
 

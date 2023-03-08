@@ -9,6 +9,23 @@ public abstract class Ball {
     Type type;
     Color color;
 
+    public Ball(Integer diameter, Integer weight, Type type, Color color) {
+        this.diameter = diameter;
+        this.weight = weight;
+        this.type = type;
+        this.color = color;
+    }
+
+    @Override
+    public String toString() {
+        return "Ball{" +
+                "diameter=" + diameter +
+                ", weight=" + weight +
+                ", type=" + type +
+                ", color=" + color +
+                '}';
+    }
+
     public Integer getDiameter() {
         return diameter;
     }
