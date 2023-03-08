@@ -1,4 +1,4 @@
-package task.entity.parameter;
+package com.innowise.task1.entity.parameter;
 
 public enum Color {
     YELLOW,

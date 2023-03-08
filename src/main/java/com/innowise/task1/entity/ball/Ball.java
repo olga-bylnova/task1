@@ -1,13 +1,13 @@
-package task.entity.ball;
+package com.innowise.task1.entity.ball;
 
-import task.entity.parameter.Color;
-import task.entity.parameter.Type;
+import com.innowise.task1.entity.parameter.Color;
+import com.innowise.task1.entity.parameter.Type;
 
 public abstract class Ball {
-    protected int diameter;
-    protected int weight;
-    protected Type type;
-    protected Color color;
+    int diameter;
+    int weight;
+    Type type;
+    Color color;
 
     public int getDiameter() {
         return diameter;
