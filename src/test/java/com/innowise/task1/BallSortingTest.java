@@ -34,7 +34,7 @@ public class BallSortingTest {
 
     @Test
     @DisplayName(value = "Odd-Even sort by diameter ASC")
-    public void test() {
+    public void testOddEvenSortByDiameterAsc() {
         BallComparatorUtil.sort(balls, SortAlgorithmType.ODD_EVEN_SORT,
                 BallComparatorType.DIAMETER_ASC);
         List<Integer> diameterList = balls.stream().map(Ball::getDiameter).toList();
@@ -43,16 +43,16 @@ public class BallSortingTest {
 
     @Test
     @DisplayName(value = "Odd-Even sort by diameter DESC")
-    public void test1() {
+    public void testOddEvenSortByDiameterDesc() {
         BallComparatorUtil.sort(balls, SortAlgorithmType.ODD_EVEN_SORT,
                 BallComparatorType.DIAMETER_DESC);
         List<Integer> diameterList = balls.stream().map(Ball::getDiameter).toList();
-        Assertions.assertTrue(isListSortedAsc(diameterList, diameterList.size()));
+        Assertions.assertTrue(isListSortedDesc(diameterList, diameterList.size()));
     }
 
     @Test
     @DisplayName(value = "Odd-Even sort by weight ASC")
-    public void test2() {
+    public void testOddEvenSortByWeightAsc() {
         BallComparatorUtil.sort(balls, SortAlgorithmType.ODD_EVEN_SORT,
                 BallComparatorType.WEIGHT_ASC);
         List<Integer> diameterList = balls.stream().map(Ball::getDiameter).toList();
@@ -61,15 +61,19 @@ public class BallSortingTest {
 
     @Test
     @DisplayName(value = "Odd-Even sort by weight DESC")
-    public void test3() {
+    public void testOddEvenSortByWeightDesc() {
         BallComparatorUtil.sort(balls, SortAlgorithmType.ODD_EVEN_SORT,
                 BallComparatorType.WEIGHT_DESC);
         List<Integer> diameterList = balls.stream().map(Ball::getDiameter).toList();
-        Assertions.assertTrue(isListSortedAsc(diameterList, diameterList.size()));
+        Assertions.assertTrue(isListSortedDesc(diameterList, diameterList.size()));
     }
 
     private static boolean isListSortedAsc(List<Integer> list, int n) {
         if (n == 1 || n == 0) return true;
         return list.get(n - 2) <= list.get(n - 1) && isListSortedAsc(list, n - 1);
+    }
+    private static boolean isListSortedDesc(List<Integer> list, int n) {
+        if (n == 1 || n == 0) return true;
+        return list.get(n - 2) >= list.get(n - 1) && isListSortedDesc(list, n - 1);
     }
 }
