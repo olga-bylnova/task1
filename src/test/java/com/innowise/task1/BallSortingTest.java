@@ -24,7 +24,12 @@ public class BallSortingTest {
             new Volleyball(7, 55, Type.VOLLEYBALL, Color.GREEN),
             new Football(3, 25, Type.FOOTBALL, Color.RED),
             new Volleyball(2, 12, Type.VOLLEYBALL, Color.BLACK),
-            new Basketball(9, 222, Type.BASKETBALL, Color.YELLOW)
+            new Basketball(9, 222, Type.BASKETBALL, Color.YELLOW),
+            new Volleyball(20, 50, Type.VOLLEYBALL, Color.RED),
+            new Basketball(10, 38, Type.BASKETBALL, Color.BLUE),
+            new Football(13, 17, Type.FOOTBALL, Color.YELLOW),
+            new Volleyball(8, 110, Type.VOLLEYBALL, Color.BLACK),
+            new Basketball(18, 25, Type.BASKETBALL, Color.GREEN)
     ));
 
     @BeforeEach
@@ -55,8 +60,8 @@ public class BallSortingTest {
     public void testOddEvenSortByWeightAsc() {
         BallComparatorUtil.sort(balls, SortAlgorithmType.ODD_EVEN_SORT,
                 BallComparatorType.WEIGHT_ASC);
-        List<Integer> diameterList = balls.stream().map(Ball::getDiameter).toList();
-        Assertions.assertTrue(isListSortedAsc(diameterList, diameterList.size()));
+        List<Integer> weightList = balls.stream().map(Ball::getWeight).toList();
+        Assertions.assertTrue(isListSortedAsc(weightList, weightList.size()));
     }
 
     @Test
@@ -64,8 +69,48 @@ public class BallSortingTest {
     public void testOddEvenSortByWeightDesc() {
         BallComparatorUtil.sort(balls, SortAlgorithmType.ODD_EVEN_SORT,
                 BallComparatorType.WEIGHT_DESC);
-        List<Integer> diameterList = balls.stream().map(Ball::getDiameter).toList();
-        Assertions.assertTrue(isListSortedDesc(diameterList, diameterList.size()));
+        List<Integer> weightList = balls.stream().map(Ball::getWeight).toList();
+        Assertions.assertTrue(isListSortedDesc(weightList, weightList.size()));
+    }
+
+    @Test
+    @DisplayName(value = "Odd-Even sort by color ASC")
+    public void testOddEvenSortByColorAsc() {
+        BallComparatorUtil.sort(balls, SortAlgorithmType.ODD_EVEN_SORT,
+                BallComparatorType.COLOR_ASC);
+        List<Integer> colorPriorityList = balls.stream().map(Ball::getColor)
+                .map(Color::getPriority).toList();
+        Assertions.assertTrue(isListSortedAsc(colorPriorityList, colorPriorityList.size()));
+    }
+
+    @Test
+    @DisplayName(value = "Odd-Even sort by color DESC")
+    public void testOddEvenSortByColorDesc() {
+        BallComparatorUtil.sort(balls, SortAlgorithmType.ODD_EVEN_SORT,
+                BallComparatorType.COLOR_DESC);
+        List<Integer> colorPriorityList = balls.stream().map(Ball::getColor)
+                .map(Color::getPriority).toList();
+        Assertions.assertTrue(isListSortedDesc(colorPriorityList, colorPriorityList.size()));
+    }
+
+    @Test
+    @DisplayName(value = "Odd-Even sort by type ASC")
+    public void testOddEvenSortByTypeAsc() {
+        BallComparatorUtil.sort(balls, SortAlgorithmType.ODD_EVEN_SORT,
+                BallComparatorType.TYPE_ASC);
+        List<Integer> typePriorityList = balls.stream().map(Ball::getType)
+                .map(Type::getPriority).toList();
+        Assertions.assertTrue(isListSortedAsc(typePriorityList, typePriorityList.size()));
+    }
+
+    @Test
+    @DisplayName(value = "Odd-Even sort by type DESC")
+    public void testOddEvenSortByTypeDesc() {
+        BallComparatorUtil.sort(balls, SortAlgorithmType.ODD_EVEN_SORT,
+                BallComparatorType.TYPE_DESC);
+        List<Integer> typePriorityList = balls.stream().map(Ball::getType)
+                .map(Type::getPriority).toList();
+        Assertions.assertTrue(isListSortedDesc(typePriorityList, typePriorityList.size()));
     }
 
     private static boolean isListSortedAsc(List<Integer> list, int n) {
